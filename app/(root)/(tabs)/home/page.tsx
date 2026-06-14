@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { Navigation, MapPin, ArrowUpDown } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import Map from "@/components/ui/map";
 import GoogleInput from "@/components/ui/google-input";
 import DriverCard from "@/components/ui/driver-card";
@@ -168,15 +170,37 @@ export default function HomePage() {
         />
 
         {/* Search overlays */}
-        <div className="absolute top-4 left-4 right-4 z-10 space-y-2 max-w-md">
+        <div className="absolute top-4 left-4 right-14 z-10 space-y-2 max-w-md">
           <GoogleInput
             icon="navigation"
             placeholder="Where are you going?"
             onSelect={(loc) => {
               setDestinationLocation(loc);
-            }}
-          />
+          }}
+        />
         </div>
+
+        {/* User avatar */}
+        <Link
+          href="/profile"
+          className="absolute top-4 right-3 z-20 w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-md hover:opacity-80 transition-opacity bg-white"
+        >
+          {user?.imageUrl ? (
+            <Image
+              src={user.imageUrl}
+              alt="Profile"
+              width={40}
+              height={40}
+              className="object-cover w-full h-full"
+            />
+          ) : (
+            <div className="w-full h-full bg-primary-100 flex items-center justify-center">
+              <span className="font-JakartaBold text-primary-500 text-sm">
+                {user?.firstName?.charAt(0) || "?"}
+              </span>
+            </div>
+          )}
+        </Link>
 
         {userLatitude && userLongitude && (
           <div className="absolute bottom-4 left-4 z-10">
