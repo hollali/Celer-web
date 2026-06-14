@@ -29,7 +29,7 @@ export default function TabsLayout({ children }: { children: ReactNode }) {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <div className="flex h-screen overflow-hidden bg-general-500">
+    <div className="flex flex-col h-[100dvh] md:flex-row overflow-hidden bg-general-500">
       {/* Desktop sidebar */}
       <aside
         className={`hidden md:flex flex-col bg-white dark:bg-general-600 border-r border-general-100 shrink-0 transition-all duration-300 ${
