@@ -11,7 +11,11 @@ import {
   User,
   Menu,
   X,
+  ChevronLeft,
+  PanelLeftClose,
+  PanelLeftOpen,
 } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 
 const tabs = [
@@ -25,21 +29,38 @@ export default function TabsLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const { userId } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
 
   return (
     <div className="flex h-screen overflow-hidden bg-general-500">
       {/* Desktop sidebar */}
-      <aside className="hidden md:flex flex-col w-64 bg-white border-r border-general-100 shrink-0">
-        <div className="p-6 border-b border-general-100">
-          <Link
-            href="/home"
-            className="font-JakartaExtraBold text-2xl text-primary-500"
+      <aside
+        className={`hidden md:flex flex-col bg-white border-r border-general-100 shrink-0 transition-all duration-300 ${
+          collapsed ? "w-16" : "w-64"
+        }`}
+      >
+        <div className="p-4 border-b border-general-100 flex items-center justify-between">
+          {!collapsed && (
+            <Link href="/home" className="flex items-center justify-center">
+              <Image
+                src="/celer-favicon.png"
+                alt="Celer"
+                width={36}
+                height={36}
+                className="rounded shrink-0"
+              />
+            </Link>
+          )}
+          <button
+            onClick={() => setCollapsed(!collapsed)}
+            className="p-1.5 rounded-lg hover:bg-general-500 text-secondary-500 hover:text-secondary-900 transition-colors"
+            title={collapsed ? "Expand sidebar" : "Collapse sidebar"}
           >
-            Celer
-          </Link>
+            {collapsed ? <PanelLeftOpen className="h-4 w-4" /> : <PanelLeftClose className="h-4 w-4" />}
+          </button>
         </div>
 
-        <nav className="flex-1 p-4 space-y-1">
+        <nav className="flex-1 p-3 space-y-1">
           {tabs.map((tab) => {
             const isActive = pathname === tab.href;
             const Icon = tab.icon;
@@ -47,26 +68,30 @@ export default function TabsLayout({ children }: { children: ReactNode }) {
               <Link
                 key={tab.name}
                 href={tab.href}
-                className={`flex items-center gap-3 rounded-xl px-4 py-3 font-JakartaSemiBold text-sm transition-colors ${
+                className={`flex items-center justify-center gap-3 rounded-xl px-2 py-3 font-JakartaSemiBold text-sm transition-colors ${
+                  collapsed ? "lg:justify-center" : "lg:justify-start"
+                } ${
                   isActive
                     ? "bg-primary-100 text-primary-500"
                     : "text-secondary-500 hover:bg-general-500 hover:text-secondary-900"
                 }`}
               >
-                <Icon className="h-5 w-5" />
-                {tab.name}
+                <Icon className="h-5 w-5 shrink-0" />
+                {!collapsed && <span className="truncate">{tab.name}</span>}
               </Link>
             );
           })}
         </nav>
 
-        <div className="p-4 border-t border-general-100">
+        <div className="p-3 border-t border-general-100">
           {userId && (
-            <div className="flex items-center gap-3">
+            <div className={`flex items-center ${collapsed ? "justify-center" : "gap-3"}`}>
               <UserButton afterSignOutUrl="/sign-in" />
-              <span className="font-Jakarta text-sm text-secondary-900">
-                Account
-              </span>
+              {!collapsed && (
+                <span className="font-Jakarta text-sm text-secondary-900 truncate">
+                  Account
+                </span>
+              )}
             </div>
           )}
         </div>
@@ -74,9 +99,10 @@ export default function TabsLayout({ children }: { children: ReactNode }) {
 
       {/* Mobile header */}
       <div className="md:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between bg-white px-4 py-3 border-b border-general-100">
-        <span className="font-JakartaExtraBold text-xl text-primary-500">
+        <Link href="/home" className="flex items-center gap-2 font-JakartaExtraBold text-xl text-primary-500">
+          <Image src="/celer-favicon.png" alt="Celer" width={22} height={22} className="rounded" />
           Celer
-        </span>
+        </Link>
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="p-2 text-secondary-900"
