@@ -9,14 +9,12 @@ import {
   Clock,
   MessageSquare,
   User,
-  Menu,
-  X,
-  ChevronLeft,
   PanelLeftClose,
   PanelLeftOpen,
 } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+
 
 const tabs = [
   { name: "Home", href: "/home", icon: Home },
@@ -28,14 +26,13 @@ const tabs = [
 export default function TabsLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const { userId } = useAuth();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
 
   return (
     <div className="flex h-screen overflow-hidden bg-general-500">
       {/* Desktop sidebar */}
       <aside
-        className={`hidden md:flex flex-col bg-white border-r border-general-100 shrink-0 transition-all duration-300 ${
+        className={`hidden md:flex flex-col bg-white dark:bg-general-600 border-r border-general-100 shrink-0 transition-all duration-300 ${
           collapsed ? "w-16" : "w-64"
         }`}
       >
@@ -53,7 +50,7 @@ export default function TabsLayout({ children }: { children: ReactNode }) {
           )}
           <button
             onClick={() => setCollapsed(!collapsed)}
-            className="p-1.5 rounded-lg hover:bg-general-500 text-secondary-500 hover:text-secondary-900 transition-colors"
+            className="p-1.5 rounded-lg hover:bg-general-500 dark:hover:bg-general-700 text-secondary-500 hover:text-secondary-900 transition-colors"
             title={collapsed ? "Expand sidebar" : "Collapse sidebar"}
           >
             {collapsed ? <PanelLeftOpen className="h-4 w-4" /> : <PanelLeftClose className="h-4 w-4" />}
@@ -73,7 +70,7 @@ export default function TabsLayout({ children }: { children: ReactNode }) {
                 } ${
                   isActive
                     ? "bg-primary-100 text-primary-500"
-                    : "text-secondary-500 hover:bg-general-500 hover:text-secondary-900"
+                    : "text-secondary-500 hover:bg-general-500 dark:hover:bg-general-700 hover:text-secondary-900"
                 }`}
               >
                 <Icon className="h-5 w-5 shrink-0" />
@@ -97,22 +94,8 @@ export default function TabsLayout({ children }: { children: ReactNode }) {
         </div>
       </aside>
 
-      {/* Mobile header */}
-      <div className="md:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between bg-white px-4 py-3 border-b border-general-100">
-        <Link href="/home" className="flex items-center gap-2 font-JakartaExtraBold text-xl text-primary-500">
-          <Image src="/celer-favicon.png" alt="Celer" width={22} height={22} className="rounded" />
-          Celer
-        </Link>
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="p-2 text-secondary-900"
-        >
-          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
-      </div>
-
-      {/* Mobile bottom tabs */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-general-100 flex justify-around py-2">
+      {/* Mobile bottom tab bar */}
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-general-600 border-t border-general-100 flex items-center justify-around px-2 pb-2 pt-1.5">
         {tabs.map((tab) => {
           const isActive = pathname === tab.href;
           const Icon = tab.icon;
@@ -120,61 +103,21 @@ export default function TabsLayout({ children }: { children: ReactNode }) {
             <Link
               key={tab.name}
               href={tab.href}
-              className={`flex flex-col items-center gap-1 px-4 py-1 ${
-                isActive ? "text-primary-500" : "text-secondary-500"
+              className={`flex flex-col items-center gap-0.5 rounded-xl px-3 py-1.5 text-xs font-JakartaSemiBold transition-colors ${
+                isActive
+                  ? "bg-primary-100 text-primary-500"
+                  : "text-secondary-500 hover:text-secondary-900"
               }`}
             >
               <Icon className="h-5 w-5" />
-              <span className="font-Jakarta text-xs">{tab.name}</span>
+              <span>{tab.name}</span>
             </Link>
           );
         })}
       </nav>
 
-      {/* Mobile overlay menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-40 bg-black/50" onClick={() => setMobileMenuOpen(false)}>
-          <div
-            className="absolute top-14 left-4 right-4 bg-white rounded-2xl p-4 shadow-xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <nav className="space-y-1">
-              {tabs.map((tab) => {
-                const isActive = pathname === tab.href;
-                const Icon = tab.icon;
-                return (
-                  <Link
-                    key={tab.name}
-                    href={tab.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`flex items-center gap-3 rounded-xl px-4 py-3 font-JakartaSemiBold text-sm transition-colors ${
-                      isActive
-                        ? "bg-primary-100 text-primary-500"
-                        : "text-secondary-500 hover:bg-general-500"
-                    }`}
-                  >
-                    <Icon className="h-5 w-5" />
-                    {tab.name}
-                  </Link>
-                );
-              })}
-            </nav>
-            <div className="mt-4 pt-4 border-t border-general-100">
-              {userId && (
-                <div className="flex items-center gap-3 px-4">
-<UserButton afterSignOutUrl="/sign-in" />
-                  <span className="font-Jakarta text-sm text-secondary-900">
-                    Account
-                  </span>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Main content */}
-      <main className="flex-1 overflow-y-auto pt-14 md:pt-0 pb-16 md:pb-0">
+      <main className="flex-1 overflow-y-auto md:pt-0 pb-16 md:pb-0">
         {children}
       </main>
     </div>

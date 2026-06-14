@@ -24,7 +24,7 @@ export default function LegalPage() {
   return (
     <div className="max-w-2xl mx-auto p-4 md:p-8">
       <div className="flex items-center gap-4 mb-8">
-        <button onClick={() => router.back()} className="p-2 hover:bg-general-500 rounded-full">
+        <button onClick={() => router.back()} className="p-2 hover:bg-general-500 dark:hover:bg-general-700 rounded-full">
           <ArrowLeft className="h-6 w-6 text-secondary-900" />
         </button>
         <h1 className="font-JakartaBold text-2xl text-secondary-900">Legal & Privacy</h1>
@@ -35,11 +35,11 @@ export default function LegalPage() {
         {legalItems.map((item) => (
           <button
             key={item.title}
-            className="flex w-full items-center gap-4 rounded-xl p-4 hover:bg-white transition-colors"
+            className="flex w-full items-center gap-4 rounded-xl p-4 hover:bg-white dark:hover:bg-general-600 transition-colors"
           >
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-general-500">
-              <FileText className="h-5 w-5 text-secondary-900" />
-            </div>
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-general-500 dark:bg-general-700">
+                <FileText className="h-5 w-5 text-secondary-900" />
+              </div>
             <div className="flex-1 text-left">
               <h3 className="font-JakartaSemiBold text-sm text-secondary-900">{item.title}</h3>
               <p className="font-Jakarta text-xs text-secondary-500">{item.description}</p>
@@ -54,7 +54,7 @@ export default function LegalPage() {
         {toggles.map((toggle, idx) => (
           <div
             key={toggle.label}
-            className="flex items-center justify-between rounded-2xl bg-white border border-general-100 p-4"
+            className="flex items-center justify-between rounded-2xl bg-white dark:bg-general-600 border border-general-100 p-4"
           >
             <span className="font-Jakarta text-sm text-secondary-900">{toggle.label}</span>
             <button onClick={() => setSettings((prev) => prev.map((v, i) => (i === idx ? !v : v)))}>

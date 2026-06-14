@@ -183,7 +183,7 @@ export default function HomePage() {
         {/* User avatar */}
         <Link
           href="/profile"
-          className="absolute top-4 right-3 z-20 w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-md hover:opacity-80 transition-opacity bg-white"
+          className="absolute top-4 right-3 z-20 w-10 h-10 rounded-full overflow-hidden border-2 border-white dark:border-general-100 shadow-md hover:opacity-80 transition-opacity bg-white dark:bg-general-600"
         >
           {user?.imageUrl ? (
             <Image
@@ -214,7 +214,7 @@ export default function HomePage() {
                   });
                 });
               }}
-              className="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-md text-sm font-JakartaSemiBold text-primary-500"
+              className="flex items-center gap-2 rounded-full bg-white dark:bg-general-600 px-4 py-2 shadow-md text-sm font-JakartaSemiBold text-primary-500"
             >
               <Navigation className="h-4 w-4" />
               My Location
@@ -225,7 +225,7 @@ export default function HomePage() {
 
       {/* Driver selection panel */}
       {showDriverPanel && (
-        <div className="bg-white border-t lg:border-t-0 lg:border-l border-general-100 w-full lg:w-96 overflow-y-auto">
+        <div className="bg-white dark:bg-general-600 border-t lg:border-t-0 lg:border-l border-general-100 w-full lg:w-96 overflow-y-auto">
           <div className="p-4 border-b border-general-100">
             <h2 className="font-JakartaBold text-lg text-secondary-900">
               Select a Driver

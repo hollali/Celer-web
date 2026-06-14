@@ -230,11 +230,11 @@ export default function SignUpPage() {
         {!showVerification && (
           <>
             <div className="my-6 flex items-center gap-4">
-              <div className="flex-1 h-px bg-general-100" />
+              <div className="flex-1 h-px bg-general-100 dark:bg-general-100/50" />
               <span className="font-Jakarta text-sm text-secondary-500">
                 or
               </span>
-              <div className="flex-1 h-px bg-general-100" />
+              <div className="flex-1 h-px bg-general-100 dark:bg-general-100/50" />
             </div>
             <GoogleOAuth />
           </>

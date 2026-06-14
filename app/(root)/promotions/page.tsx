@@ -44,7 +44,7 @@ export default function PromotionsPage() {
   return (
     <div className="max-w-2xl mx-auto p-4 md:p-8">
       <div className="flex items-center gap-4 mb-8">
-        <button onClick={() => router.back()} className="p-2 hover:bg-general-500 rounded-full">
+        <button onClick={() => router.back()} className="p-2 hover:bg-general-500 dark:hover:bg-general-700 rounded-full">
           <ArrowLeft className="h-6 w-6 text-secondary-900" />
         </button>
         <h1 className="font-JakartaBold text-2xl text-secondary-900">Promotions</h1>
@@ -52,7 +52,7 @@ export default function PromotionsPage() {
 
       <div className="space-y-3 mb-8">
         {promos.map((promo) => (
-          <div key={promo.code} className="rounded-2xl bg-white border border-general-100 p-4">
+          <div key={promo.code} className="rounded-2xl bg-white dark:bg-general-600 border border-general-100 p-4">
             <div className="flex items-start gap-4">
               <div className="h-12 w-12 rounded-full bg-primary-100 flex items-center justify-center shrink-0">
                 <Gift className="h-6 w-6 text-primary-500" />
@@ -81,7 +81,7 @@ export default function PromotionsPage() {
           <h2 className="font-JakartaSemiBold text-sm text-secondary-500 mb-3">Expired</h2>
           <div className="space-y-3">
             {expiredPromos.map((promo) => (
-              <div key={promo.code} className="rounded-2xl bg-white border border-general-100 p-4 opacity-60">
+              <div key={promo.code} className="rounded-2xl bg-white dark:bg-general-600 border border-general-100 p-4 opacity-60">
                 <div className="flex items-start gap-4">
                   <div className="h-12 w-12 rounded-full bg-general-300 flex items-center justify-center shrink-0">
                     <Ticket className="h-6 w-6 text-general-200" />

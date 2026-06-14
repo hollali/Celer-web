@@ -36,7 +36,7 @@ export default function EditProfilePage() {
   return (
     <div className="max-w-lg mx-auto p-4 md:p-8">
       <div className="flex items-center gap-4 mb-8">
-        <button onClick={() => router.back()} className="p-2 hover:bg-general-500 rounded-full">
+        <button onClick={() => router.back()} className="p-2 hover:bg-general-500 dark:hover:bg-general-700 rounded-full">
           <ArrowLeft className="h-6 w-6 text-secondary-900" />
         </button>
         <h1 className="font-JakartaBold text-2xl text-secondary-900">Edit Profile</h1>

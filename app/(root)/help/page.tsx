@@ -27,7 +27,7 @@ export default function HelpPage() {
   return (
     <div className="max-w-2xl mx-auto p-4 md:p-8">
       <div className="flex items-center gap-4 mb-8">
-        <button onClick={() => router.back()} className="p-2 hover:bg-general-500 rounded-full">
+        <button onClick={() => router.back()} className="p-2 hover:bg-general-500 dark:hover:bg-general-700 rounded-full">
           <ArrowLeft className="h-6 w-6 text-secondary-900" />
         </button>
         <h1 className="font-JakartaBold text-2xl text-secondary-900">Help & Support</h1>
@@ -40,13 +40,13 @@ export default function HelpPage() {
           placeholder="Search FAQs..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full rounded-full border border-general-100 bg-white pl-10 pr-4 py-2.5 font-Jakarta text-sm outline-none focus:border-primary-500"
+          className="w-full rounded-full border border-general-100 bg-white dark:bg-general-600 pl-10 pr-4 py-2.5 font-Jakarta text-sm outline-none focus:border-primary-500"
         />
       </div>
 
       <div className="space-y-2 mb-8">
         {filteredFaqs.map((faq, idx) => (
-          <div key={idx} className="rounded-2xl bg-white border border-general-100 overflow-hidden">
+          <div key={idx} className="rounded-2xl bg-white dark:bg-general-600 border border-general-100 overflow-hidden">
             <button
               onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
               className="flex w-full items-center justify-between p-4 text-left"
@@ -67,7 +67,7 @@ export default function HelpPage() {
         ))}
       </div>
 
-      <div className="rounded-2xl bg-primary-100 p-6 text-center">
+      <div className="rounded-2xl bg-primary-100 dark:bg-primary-100/20 p-6 text-center">
         <MessageSquare className="h-8 w-8 text-primary-500 mx-auto mb-3" />
         <h3 className="font-JakartaSemiBold text-secondary-900 mb-1">Still need help?</h3>
         <p className="font-Jakarta text-sm text-secondary-500 mb-4">

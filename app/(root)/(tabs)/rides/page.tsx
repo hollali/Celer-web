@@ -71,7 +71,7 @@ export default function RidesPage() {
             placeholder="Search rides..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full rounded-full border border-general-100 bg-white pl-10 pr-4 py-2.5 font-Jakarta text-sm outline-none focus:border-primary-500"
+            className="w-full rounded-full border border-general-100 bg-white dark:bg-general-600 pl-10 pr-4 py-2.5 font-Jakarta text-sm outline-none focus:border-primary-500"
           />
         </div>
         <div className="flex gap-2">
@@ -82,7 +82,7 @@ export default function RidesPage() {
               className={`rounded-full px-4 py-2 font-JakartaSemiBold text-sm transition-colors ${
                 filter === f
                   ? "bg-primary-500 text-white"
-                  : "bg-white text-secondary-500 border border-general-100 hover:border-primary-300"
+                  : "bg-white dark:bg-general-600 text-secondary-500 border border-general-100 hover:border-primary-300"
               }`}
             >
               {f.charAt(0).toUpperCase() + f.slice(1)}
@@ -110,7 +110,7 @@ export default function RidesPage() {
           {filteredRides.map((ride) => (
             <div
               key={ride.ride_id}
-              className="rounded-2xl bg-white border border-general-100 p-4 hover:shadow-sm transition-shadow"
+              className="rounded-2xl bg-white dark:bg-general-600 border border-general-100 p-4 hover:shadow-sm transition-shadow"
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="space-y-1">

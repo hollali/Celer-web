@@ -36,7 +36,7 @@ export default function SafetyPage() {
   return (
     <div className="max-w-2xl mx-auto p-4 md:p-8">
       <div className="flex items-center gap-4 mb-8">
-        <button onClick={() => router.back()} className="p-2 hover:bg-general-500 rounded-full">
+        <button onClick={() => router.back()} className="p-2 hover:bg-general-500 dark:hover:bg-general-700 rounded-full">
           <ArrowLeft className="h-6 w-6 text-secondary-900" />
         </button>
         <h1 className="font-JakartaBold text-2xl text-secondary-900">Safety</h1>
@@ -48,7 +48,7 @@ export default function SafetyPage() {
           return (
             <button
               key={item.title}
-              className="flex w-full items-center gap-4 rounded-xl p-4 hover:bg-white transition-colors"
+              className="flex w-full items-center gap-4 rounded-xl p-4 hover:bg-white dark:hover:bg-general-600 transition-colors"
             >
               <div className={`flex h-12 w-12 items-center justify-center rounded-full ${item.color}`}>
                 <Icon className="h-6 w-6" />

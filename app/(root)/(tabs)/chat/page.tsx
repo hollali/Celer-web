@@ -60,7 +60,7 @@ export default function ChatPage() {
           placeholder="Search conversations..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full rounded-full border border-general-100 bg-white pl-10 pr-4 py-2.5 font-Jakarta text-sm outline-none focus:border-primary-500"
+            className="w-full rounded-full border border-general-100 bg-white dark:bg-general-600 pl-10 pr-4 py-2.5 font-Jakarta text-sm outline-none focus:border-primary-500"
         />
       </div>
 
@@ -68,7 +68,7 @@ export default function ChatPage() {
         {filtered.map((conv) => (
           <div
             key={conv.id}
-            className="flex items-center gap-4 rounded-xl p-3 hover:bg-white transition-colors cursor-pointer"
+            className="flex items-center gap-4 rounded-xl p-3 hover:bg-white dark:hover:bg-general-600 transition-colors cursor-pointer"
           >
             <Image
               src={conv.avatar}

@@ -82,7 +82,7 @@ export default function GoogleInput({
 
   return (
     <div className="relative w-full">
-      <div className="flex items-center gap-3 rounded-full border border-general-100 bg-white px-4 py-3 shadow-sm">
+      <div className="flex items-center gap-3 rounded-full border border-general-100 bg-white dark:bg-general-600 px-4 py-3 shadow-sm">
         {icon === "search" ? (
           <Search className="h-5 w-5 text-general-200" />
         ) : (
@@ -103,14 +103,14 @@ export default function GoogleInput({
       </div>
 
       {focused && predictions.length > 0 && (
-        <div className="absolute top-full mt-2 w-full rounded-2xl border border-general-100 bg-white shadow-lg z-50 max-h-60 overflow-y-auto">
+        <div className="absolute top-full mt-2 w-full rounded-2xl border border-general-100 bg-white dark:bg-general-600 shadow-lg z-50 max-h-60 overflow-y-auto">
           {predictions.map((prediction) => (
             <button
               key={prediction.place_id}
               onClick={() =>
                 handleSelect(prediction.place_id, prediction.description)
               }
-              className="flex items-center gap-3 px-4 py-3 text-left hover:bg-general-500 transition-colors w-full"
+              className="flex items-center gap-3 px-4 py-3 text-left hover:bg-general-500 dark:hover:bg-general-700 transition-colors w-full"
             >
               <Search className="h-4 w-4 text-general-200 shrink-0" />
               <span className="font-Jakarta text-sm text-secondary-900">

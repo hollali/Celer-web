@@ -27,7 +27,7 @@ export default function InputField({
           </div>
         )}
         <input
-          className={`w-full font-Jakarta rounded-full border border-general-100 bg-white px-4 py-3 text-secondary-900 placeholder:text-general-200 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-200 ${icon ? "pl-12" : ""} ${error ? "border-danger-500" : ""} ${className}`}
+          className={`w-full font-Jakarta rounded-full border border-general-100 bg-white dark:bg-general-600 px-4 py-3 text-secondary-900 placeholder:text-general-200 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-200 ${icon ? "pl-12" : ""} ${error ? "border-danger-500" : ""} ${className}`}
           {...props}
         />
       </div>

@@ -2,8 +2,121 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-100: #F5F8FF;
+  --primary-200: #EBF4FF;
+  --primary-300: #C3D9FF;
+  --primary-400: #9BBFFF;
+  --primary-500: #0286FF;
+  --primary-600: #6A85E6;
+  --primary-700: #475A99;
+  --primary-800: #364573;
+  --primary-900: #242B4D;
+
+  --secondary-500: #AAAAAA;
+  --secondary-900: #333333;
+
+  --success-100: #F0FFF4;
+  --success-200: #C6F6D5;
+  --success-300: #9AE6B4;
+  --success-400: #68D391;
+  --success-500: #38A169;
+  --success-600: #2F855A;
+  --success-700: #276749;
+  --success-800: #22543D;
+  --success-900: #1C4532;
+
+  --danger-100: #FFF5F5;
+  --danger-200: #FED7D7;
+  --danger-300: #FEB2B2;
+  --danger-400: #FC8181;
+  --danger-500: #F56565;
+  --danger-600: #E53E3E;
+  --danger-700: #C53030;
+  --danger-800: #9B2C2C;
+  --danger-900: #742A2A;
+
+  --warning-100: #FFFBEB;
+  --warning-200: #FEF3C7;
+  --warning-300: #FDE68A;
+  --warning-400: #FACC15;
+  --warning-500: #EAB308;
+  --warning-600: #CA8A04;
+  --warning-700: #A16207;
+  --warning-800: #854D0E;
+  --warning-900: #713F12;
+
+  --general-100: #CED1DD;
+  --general-200: #858585;
+  --general-300: #EEEEEE;
+  --general-400: #0CC25F;
+  --general-500: #F6F8FA;
+  --general-600: #E6F3FF;
+  --general-700: #EBEBEB;
+  --general-800: #ADADAD;
+}
+
+.dark {
+  --primary-100: #1E3A5F;
+  --primary-200: #1E40AF;
+  --primary-300: #2563EB;
+  --primary-400: #3B82F6;
+  --primary-500: #60A5FA;
+  --primary-600: #93C5FD;
+  --primary-700: #BFDBFE;
+  --primary-800: #DBEAFE;
+  --primary-900: #EFF6FF;
+
+  --secondary-500: #9CA3AF;
+  --secondary-900: #F3F4F6;
+
+  --success-100: #064E3B;
+  --success-200: #065F46;
+  --success-300: #047857;
+  --success-400: #059669;
+  --success-500: #10B981;
+  --success-600: #34D399;
+  --success-700: #6EE7B7;
+  --success-800: #A7F3D0;
+  --success-900: #D1FAE5;
+
+  --danger-100: #7F1D1D;
+  --danger-200: #991B1B;
+  --danger-300: #B91C1C;
+  --danger-400: #DC2626;
+  --danger-500: #EF4444;
+  --danger-600: #F87171;
+  --danger-700: #FCA5A5;
+  --danger-800: #FECACA;
+  --danger-900: #FEE2E2;
+
+  --warning-100: #78350F;
+  --warning-200: #92400E;
+  --warning-300: #B45309;
+  --warning-400: #D97706;
+  --warning-500: #F59E0B;
+  --warning-600: #FBBF24;
+  --warning-700: #FCD34D;
+  --warning-800: #FDE68A;
+  --warning-900: #FEF3C7;
+
+  --general-100: #374151;
+  --general-200: #6B7280;
+  --general-300: #4B5563;
+  --general-400: #10B981;
+  --general-500: #0F0F13;
+  --general-600: #1A1A23;
+  --general-700: #24242F;
+  --general-800: #9CA3AF;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
+}
+
+.dark body {
+  background-color: #0F0F13;
+  color: #F3F4F6;
 }

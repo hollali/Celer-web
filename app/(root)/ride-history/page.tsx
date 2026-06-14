@@ -49,7 +49,7 @@ export default function RideHistoryPage() {
   return (
     <div className="max-w-4xl mx-auto p-4 md:p-8">
       <div className="flex items-center gap-4 mb-6">
-        <button onClick={() => router.back()} className="p-2 hover:bg-general-500 rounded-full">
+        <button onClick={() => router.back()} className="p-2 hover:bg-general-500 dark:hover:bg-general-700 rounded-full">
           <ArrowLeft className="h-6 w-6 text-secondary-900" />
         </button>
         <h1 className="font-JakartaBold text-2xl text-secondary-900">Ride History</h1>
@@ -62,7 +62,7 @@ export default function RideHistoryPage() {
           placeholder="Search by location..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full rounded-full border border-general-100 bg-white pl-10 pr-4 py-2.5 font-Jakarta text-sm outline-none focus:border-primary-500"
+          className="w-full rounded-full border border-general-100 bg-white dark:bg-general-600 pl-10 pr-4 py-2.5 font-Jakarta text-sm outline-none focus:border-primary-500"
         />
       </div>
 
@@ -80,7 +80,7 @@ export default function RideHistoryPage() {
           {filtered.map((ride) => (
             <div
               key={ride.ride_id}
-              className="rounded-2xl bg-white border border-general-100 p-4"
+              className="rounded-2xl bg-white dark:bg-general-600 border border-general-100 p-4"
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="space-y-1 flex-1 min-w-0">

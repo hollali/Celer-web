@@ -108,7 +108,7 @@ function PaymentContent() {
   return (
     <div className="max-w-md mx-auto p-4 md:p-8">
       <div className="flex items-center gap-4 mb-8">
-        <button onClick={() => router.back()} className="p-2 hover:bg-general-500 rounded-full">
+        <button onClick={() => router.back()} className="p-2 hover:bg-general-500 dark:hover:bg-general-700 rounded-full">
           <ArrowLeft className="h-6 w-6 text-secondary-900" />
         </button>
         <h1 className="font-JakartaBold text-2xl text-secondary-900">Payment</h1>
@@ -143,7 +143,7 @@ function PaymentContent() {
           </Button>
         </div>
       ) : (
-        <div className="rounded-2xl bg-white border border-general-100 p-6">
+        <div className="rounded-2xl bg-white dark:bg-general-600 border border-general-100 p-6">
           <div className="flex items-center gap-4 mb-6">
             <div className="h-12 w-12 rounded-full bg-primary-100 flex items-center justify-center">
               <CreditCard className="h-6 w-6 text-primary-500" />
@@ -157,7 +157,7 @@ function PaymentContent() {
           </div>
 
           {amount && (
-            <div className="bg-general-500 rounded-xl p-4 mb-6">
+            <div className="bg-general-500 dark:bg-general-700 rounded-xl p-4 mb-6">
               <p className="font-Jakarta text-sm text-secondary-500">Amount</p>
               <p className="font-JakartaBold text-2xl text-secondary-900">
                 GH₵ {parseFloat(amount).toFixed(2)}

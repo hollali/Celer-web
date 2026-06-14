@@ -27,7 +27,7 @@ export default function GoogleOAuth() {
   return (
     <button
       onClick={handleGoogleSignIn}
-      className="flex w-full items-center justify-center gap-3 rounded-full border-2 border-general-100 bg-white px-6 py-3 font-JakartaSemiBold text-secondary-900 transition-colors hover:bg-general-500"
+      className="flex w-full items-center justify-center gap-3 rounded-full border-2 border-general-100 bg-white dark:bg-general-600 px-6 py-3 font-JakartaSemiBold text-secondary-900 transition-colors hover:bg-general-500 dark:hover:bg-general-700"
     >
       <Image
         src="/google-icon.svg"

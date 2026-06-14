@@ -25,6 +25,7 @@ Celer is a ride-hailing web application built for Ghana, offering a full ride-bo
 - Paystack payment integration
 - User profile, promotions, safety info, help & support, and legal/privacy pages
 - Responsive design with sidebar (desktop) and bottom tab navigation (mobile)
+- Dark mode with persistent theme toggle (Light / Dark / System) in Appearance settings
 
 ## Getting Started
 
@@ -65,7 +66,7 @@ app/
   api/           Route handlers (driver, ride, user, paystack)
 components/      Reusable UI components (map, driver card, button, etc.)
 lib/             Utilities and API helpers
-store/           Zustand state stores
+store/           Zustand state stores (location, driver, theme)
 types/           TypeScript interfaces
 public/          Static assets
 ```

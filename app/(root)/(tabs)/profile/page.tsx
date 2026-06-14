@@ -16,6 +16,7 @@ import {
   Star,
   Award,
   Bell,
+  Sun,
 } from "lucide-react";
 
 const menuItems = [
@@ -24,6 +25,7 @@ const menuItems = [
   { icon: Gift, label: "Promotions", href: "/promotions" },
   { icon: Shield, label: "Safety", href: "/safety" },
   { icon: HelpCircle, label: "Help & Support", href: "/help" },
+  { icon: Sun, label: "Appearance", href: "/profile/appearance" },
   { icon: FileText, label: "Legal", href: "/legal" },
 ];
 
@@ -61,17 +63,17 @@ export default function ProfilePage() {
 
       {/* Stats */}
       <div className="grid grid-cols-3 gap-3 mb-8">
-        <div className="rounded-2xl bg-white border border-general-100 p-4 text-center">
+        <div className="rounded-2xl bg-white dark:bg-general-600 border border-general-100 p-4 text-center">
           <Star className="h-6 w-6 text-yellow-500 fill-yellow-500 mx-auto mb-1" />
           <p className="font-JakartaBold text-lg text-secondary-900">4.8</p>
           <p className="font-Jakarta text-xs text-secondary-500">Rating</p>
         </div>
-        <div className="rounded-2xl bg-white border border-general-100 p-4 text-center">
+        <div className="rounded-2xl bg-white dark:bg-general-600 border border-general-100 p-4 text-center">
           <Award className="h-6 w-6 text-primary-500 mx-auto mb-1" />
           <p className="font-JakartaBold text-lg text-secondary-900">12</p>
           <p className="font-Jakarta text-xs text-secondary-500">Rides</p>
         </div>
-        <div className="rounded-2xl bg-white border border-general-100 p-4 text-center">
+        <div className="rounded-2xl bg-white dark:bg-general-600 border border-general-100 p-4 text-center">
           <Bell className="h-6 w-6 text-general-400 mx-auto mb-1" />
           <p className="font-JakartaBold text-lg text-secondary-900">3</p>
           <p className="font-Jakarta text-xs text-secondary-500">Earned</p>
@@ -86,9 +88,9 @@ export default function ProfilePage() {
             <button
               key={item.label}
               onClick={() => router.push(item.href)}
-              className="flex w-full items-center gap-4 rounded-xl p-4 hover:bg-white transition-colors"
+              className="flex w-full items-center gap-4 rounded-xl p-4 hover:bg-white dark:hover:bg-general-600 transition-colors"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-general-500">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-general-500 dark:bg-general-700">
                 <Icon className="h-5 w-5 text-secondary-900" />
               </div>
               <span className="flex-1 text-left font-Jakarta text-sm text-secondary-900">
@@ -103,7 +105,7 @@ export default function ProfilePage() {
       <div className="mt-4 pt-4">
         <button
           onClick={() => signOut({ redirectUrl: "/sign-in" })}
-          className="flex w-full items-center gap-4 rounded-xl p-4 hover:bg-white transition-colors"
+          className="flex w-full items-center gap-4 rounded-xl p-4 hover:bg-white dark:hover:bg-general-600 transition-colors"
         >
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-danger-100">
             <LogOut className="h-5 w-5 text-danger-600" />
