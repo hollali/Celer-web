@@ -29,7 +29,7 @@ export default function TabsLayout({ children }: { children: ReactNode }) {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <div className="flex flex-col min-h-screen md:flex-row md:h-screen md:overflow-hidden bg-general-500">
+    <div className="flex h-screen overflow-hidden bg-general-500">
       {/* Desktop sidebar */}
       <aside
         className={`hidden md:flex flex-col bg-white dark:bg-general-600 border-r border-general-100 shrink-0 transition-all duration-300 ${
@@ -117,7 +117,7 @@ export default function TabsLayout({ children }: { children: ReactNode }) {
       </nav>
 
       {/* Main content */}
-      <main className="flex-1 md:overflow-y-auto md:pt-0 pb-16 md:pb-0">
+      <main className="flex-1 overflow-y-auto pb-16 md:pb-0">
         {children}
       </main>
     </div>
