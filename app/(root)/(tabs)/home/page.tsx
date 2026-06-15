@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
-import { Navigation, MapPin, ArrowUpDown, Search } from "lucide-react";
+import { Navigation, MapPin, ArrowUpDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import Map from "@/components/ui/map";
@@ -46,7 +46,6 @@ export default function HomePage() {
   const [farePrice, setFarePrice] = useState<string | null>(null);
   const [polyline, setPolyline] = useState<string | null>(null);
   const [showDriverPanel, setShowDriverPanel] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {
     if (!navigator.geolocation) return;
@@ -170,50 +169,16 @@ export default function HomePage() {
           polyline={polyline}
         />
 
-        {/* Desktop search overlay */}
-        <div className="hidden lg:block absolute top-4 left-4 right-14 z-10 space-y-2 max-w-md">
+        {/* Search overlay */}
+        <div className="absolute top-4 left-4 right-14 z-10 space-y-2 max-w-md">
           <GoogleInput
             icon="navigation"
             placeholder="Where are you going?"
             onSelect={(loc) => {
               setDestinationLocation(loc);
-              setSearchOpen(false);
           }}
         />
         </div>
-
-        {/* Mobile search overlay */}
-        {searchOpen && (
-          <div className="lg:hidden absolute top-0 left-0 right-0 z-30 bg-white/95 dark:bg-general-600/95 backdrop-blur-sm px-4 pb-4 pt-3 shadow-lg rounded-b-2xl">
-            <div className="max-w-md mx-auto">
-              <GoogleInput
-                icon="navigation"
-                placeholder="Where are you going?"
-                onSelect={(loc) => {
-                  setDestinationLocation(loc);
-                  setSearchOpen(false);
-                }}
-              />
-              <button
-                onClick={() => setSearchOpen(false)}
-                className="mt-2 w-full rounded-full border border-general-100 dark:border-general-100/50 bg-white dark:bg-general-600 py-2.5 font-JakartaSemiBold text-sm text-secondary-500 text-center"
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* Mobile "Where to?" button */}
-        {!searchOpen && (
-          <button
-            onClick={() => setSearchOpen(true)}
-            className="lg:hidden absolute bottom-6 left-4 right-4 z-10 flex items-center gap-3 rounded-full bg-white dark:bg-general-600 px-5 py-3.5 shadow-lg border border-general-100"
-          >
-            <Search className="h-5 w-5 text-general-200" />
-            <span className="font-Jakarta text-sm text-general-200">Where are you going?</span>
-          </button>
-        )}
 
         {/* User avatar */}
         <Link
